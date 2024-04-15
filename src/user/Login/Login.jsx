@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Login.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { TextField } from '@mui/material'
 import bgre from '../Login/nbg6.jpg'
 import axios from 'axios'
@@ -15,8 +15,9 @@ let HandleSubmit = async(e) => {
     try{
         let response = await axios.post('http://localhost:8080/api/v1/user/login', data)
         successToast(response.data.message)
-        console.log(response.data, 'response');
+        console.log(response.data.data.user._id, 'response');
         localStorage.setItem('token',response.data.data.token)
+        localStorage.setItem('user-id',response.data.data.user._id)
         navigate('/')
     }
     catch(error){
@@ -40,6 +41,7 @@ console.log(data);
                 <TextField className='regbox' onChange={HandleChange} id='outlined-basic' label='Email' variant='outlined' name='email' /><br/><br/>
                 <TextField className='regbox' onChange={HandleChange} id='outlined-basic' label='Password' variant='outlined' name='password' /><br/><br/>
                 <button className='regbtn'><b>Login</b></button>
+                <Link to={'/Register'}>register</Link>
             </div>
         </form>
       

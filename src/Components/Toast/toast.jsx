@@ -15,7 +15,7 @@ export const successToast = (message) => {
 }
 
 export const errorToast = (message) => {
-    toast.success(message, {
+    toast.error(message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,

@@ -15,13 +15,9 @@ const Menulist = () => {
   let handleClick = async (id) => {
     try {
 
-      let response = await axios.post(`http://localhost:8080/order/${id}`, {}, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        }
-      })
-      navigate('/ordermenu')
-      console.log(response, 'order');
+      let response = await axios.post(`http://localhost:8080/order/${id}`, {userid:localStorage.getItem("user-id")})
+      console.log(response)
+      successToast(response.data.message)
     }
     catch (error) {
 

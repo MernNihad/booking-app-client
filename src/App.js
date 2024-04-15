@@ -22,6 +22,8 @@ import Menulist from './user/Menulist/Menulist';
 import AddtoCart from './user/Menulist/AddtoCart';
 import OrderMenu from './user/Menulist/OrderMenu';
 import Payment from './user/Menulist/Payment';
+import Orders from "./user/Orders"
+import OrdersByUser from "./Admin/OrdersByUser.jsx"
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
           <Route path='aboutus' element={<AboutUs/>} />
           <Route path='contact' element={<Contact/>} />
           <Route path='footer' element={<Footer/>} />
+          <Route path='orders' element={<Orders/>} />
           {/*  */}
           </Route> 
           {/* user area */}
@@ -47,7 +50,7 @@ function App() {
 
           {/* user login and signup */}
           <Route path='/Register' element={<Register/>} />
-          <Route path='/Login' element={<Login/>} />
+          <Route path='/login' element={<Login/>} />
           {/* user login and signup */}
 
           {/* Admin login and signup */}
@@ -64,6 +67,7 @@ function App() {
           <Route path='user' element={<UsersAdmin/>}/>
           <Route path='product' element={<ProductAdd/>}/>
           <Route path='order' element={<ProductAdd/>}/>
+          <Route path='order/:id' element={<OrdersByUser/>}/>
           <Route path='viewproduct' element={<ViewProduct/>}/>
           
           </Route>
